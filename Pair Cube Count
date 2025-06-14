@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int countPairs(int n)
+{
+int count=0;
+for(int a=1;a*a*a<=n;a++){
+for(int b=1;b*b*b<=n;b++){
+if(a*a*a+b*b*b==n){
+count++;
+}}}
+return count;
+}
+
+int main()
+{
+int n=9;
+cout<<countPairs(n)<<endl;
+return 0;
+}
+
