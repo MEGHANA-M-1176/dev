@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int findGCD(int a, int b) {
+    if (a == 0)
+        return b;
+    return findGCD(b % a, a);
+}
+
+void addFractions(int num1, int den1, int num2, int den2) {
+    int gcd = findGCD(den1, den2);
+    int lcm = (den1 * den2) / gcd;
+
+    int new_num = (num1 * (lcm / den1)) + (num2 * (lcm / den2));
+    int final_gcd = findGCD(new_num, lcm);
+    new_num = new_num / final_gcd;
+    lcm = lcm / final_gcd;
+    cout << "Answer is: " << new_num << "/" << lcm << endl;
+}
+
+int main() {
+
+    int num1 = 1, den1 = 2; // First fraction = 1/2
+    int num2 = 3, den2 = 2; // Second fraction = 3/2
+    addFractions(num1, den1, num2, den2);
+    return 0;
+}
